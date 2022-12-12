@@ -45,7 +45,7 @@ contract Staking_Platform {
     erc20 = ERC20(_stakedToken);
 
     // Checks if the message caller has enough of the reward tokens before going further
-    require(erc20.balanceOf(msg.sender) == _rewardTokenAmount, 'Not enough reward tokens!');
+    require(erc20.balanceOf(msg.sender) >= _rewardTokenAmount, 'Not enough reward tokens!');
 
     // Creates a new staking pool with the specified staking and reward token addresses and reward token amount
     pools[_stakedToken] = Pool(
